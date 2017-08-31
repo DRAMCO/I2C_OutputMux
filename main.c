@@ -97,7 +97,6 @@ int main(void){
 #endif /* _TEST_ */
 
     while(1){
-        LATA = 0xFF;  //TEMP
         SLEEP(); // this will reduce power consumption to around 20 nA @ 2 V (if you don't do this, current drawn will be around 200 µA)
         retval = i2c_receive(&command);
         if(retval == 1){
