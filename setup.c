@@ -21,7 +21,7 @@ void init_io(){
 void init_clk(){
     //OSCCON
     OSCCONbits.SPLLEN = 0; // PLL disabled
-    OSCCONbits.IRCF = 0b1010; // 500 kHz
+    OSCCONbits.IRCF = 0b1110; // 8 MHz
     OSCCONbits.SCS = 00; // oscillator set in config word
 }
 
@@ -33,11 +33,11 @@ void init_i2c(){
     SSPSTATbits.CKE = 1;    // SMBus specific inputs (RPi testing)
 
     // APFCON
-    APFCONbits.SDSEL = 1;   // SDA on RA3
+    APFCONbits.SDSEL = 0;   // SDA on RA2
 
     // TRISA
     TRISAbits.TRISA1 = 1;   // SCL input
-    TRISAbits.TRISA3 = 1;   // SDA input
+    TRISAbits.TRISA2 = 1;   // SDA input
 
     //SSPCON1
     SSPCON1bits.CKP = 1;    // enable clock
